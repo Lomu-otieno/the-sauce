@@ -1,0 +1,134 @@
+/* article.css */
+
+/* General page styles */
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f4f4f9; */
+    margin: 0;
+    padding: 0;
+    background-color: #0e0101;
+}
+
+/* Header Styles */
+header {
+    background-color:#041324;
+    color: #fff;
+    padding: 20px 30px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size:x-large;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+}
+
+
+/* Main content styles */
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #a8a1a1;
+    margin-bottom: 1.5rem;
+}
+
+/* News feed styles */
+#newsFeed {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.article {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-5px);
+}
+
+.article h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.article p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.article img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    header nav {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+}

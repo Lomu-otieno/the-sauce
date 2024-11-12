@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sauce Maseno</title>
+    <link rel="icon" href="https://i.pinimg.com/236x/d6/8f/59/d68f59faddac42a7f7f00eda32507ca2.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>The Sauce</h1>
+        <nav>
+            <a href="article.html">Articles</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- News submission form -->
+        <h2>Submit Your News</h2>
+        <form id="newsForm" action="/submit" method="POST" enctype="multipart/form-data">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="10" required></textarea>
+
+            <label for="author">Author (Optional):</label>
+            <input type="text" id="author" name="author">
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="Technology">Technology</option>
+                <option value="Politics">Politics</option>
+                <option value="Sports">Sports</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Lectures">Lectures</option>
+            </select>
+
+            <label for="image">Upload Image (Optional):</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <button type="submit">Submit News</button>
+        </form>
+
+        <h2>Maseno News Feed</h2>
+        <div id="newsFeed">
+            <!-- Articles will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>powered by kemex © 2024 The Sauce Maseno. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('articleForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+    
+            const formData = new FormData(this);
+    
+            // Submit the form data to the server
+            fetch('/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Article submitted successfully!') {
+                    // Redirect to the article page after successful submission
+                    window.location.href = 'article.html';
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting article:', error);
+            });
+        });
+    </script>
+</body>
+</html>
